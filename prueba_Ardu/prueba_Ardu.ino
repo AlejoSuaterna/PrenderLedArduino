@@ -1,4 +1,3 @@
-#include <Arduino.h>
     int LDR = 4; //Pin analógico 4 para la foto resistencia
     int LED = 2; //Pin digital para LED
     int valor; //Acumula el valor del LDR
