@@ -1,20 +1,20 @@
-const int LEDPin = 13;
-const int LDRPin = A0;
-const int threshold = 100;
+const int INDICATOR_LED = 13;
+const int SENSOR = A0;
+const int THRESHHOLD = 100;
 
 void setup() {
   
-  pinMode(LEDPin, OUTPUT);
-  pinMode(LDRPin, INPUT); // mín = 470 - Max = 600.
+  pinMode(INDICATOR_LED , OUTPUT);
+  pinMode(SENSOR, INPUT); // mín = 470 - Max = 600.
 }
 
 void loop() {
   
-   int input = analogRead(LDRPin);
-   if (input > threshold) {
-      digitalWrite(LEDPin, HIGH);
+   int input = analogRead(SENSOR);
+   if (input > THRESHHOLD) {
+      digitalWrite(INDICATOR_LED, HIGH);
    }
    else {
-      digitalWrite(LEDPin, LOW);
+      digitalWrite(INDICATOR_LED, LOW);
    }
 }
