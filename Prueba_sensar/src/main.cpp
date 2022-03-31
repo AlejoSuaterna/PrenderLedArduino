@@ -14,7 +14,7 @@ void setup() {
 void loop() {
        valor = analogRead(LDR); //Lee el valor del LDR
        valor = constrain(valor, min, max); // Limita el valor entre el máximo y el mínimo
-       Serial.println(valor); // Mostrar en monitor serieal el valor para ajustar máx y min.
+       Serial.println(valor); // Mostrar en monitor serial el valor para ajustar máx y min.
        // Acomodar valor proporcional entre 0 y 255
        // Cuando hay plena luz (máximo) --> Valor = 0
        // Cuando no hay luz (mínimo) --> Valor = 255
