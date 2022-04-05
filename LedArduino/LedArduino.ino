@@ -2,8 +2,8 @@
     int LED = 2; //Pin digital para LED
     int valor; //Acumula el valor del LDR
 
-    int max = 600; //Valor máximo de la fotoresistencia con luz plena
-    int min = 470; //Valor mínimo de la foto resuistencia sin luz
+    int maximum = 600; //Valor máximo de la fotoresistencia con luz plena
+    int minimum = 470; //Valor mínimo de la foto resuistencia sin luz
     
 void Imprimir(int Value);
 void Presentacion();
@@ -16,13 +16,14 @@ void setup() {
 
 void loop() {
   valor = analogRead(LDR); //Lee el valor del LDR
-  valor = constrain(valor, min, max); // Limita el valor entre el máximo y el mínimo
+  valor = constrain(valor, minimum, maximum); // Limita el valor entre el máximo y el mínimo
   Imprimir(valor);
   // Mostrar en monitor serial el valor para ajustar máx y min.
   // Acomodar valor proporcional entre 0 y 255
   // Cuando hay plena luz (máximo) --> Valor = 0
   // Cuando no hay luz (mínimo) --> Valor = 255
-  valor = map(valor, max, min, 0, 255);
+  valor = map(valor, maximum, minimum, 0, 255);
+  
   analogWrite(LED, valor); // Se enciende LED segun el valor obtenido
 }
 void Presentacion(){
@@ -33,10 +34,10 @@ void Presentacion(){
 } 
 void Imprimir(int Value){
   Serial.print("El sensor de luz esta: ");
-  if(Value>470 && Value<600){
+  if(Value>=470 && Value<500){
     Serial.print("Encendido");
   }
-  else if(Value<470){
+  else {
     Serial.print("Apagado");
   }
   Serial.print("\n");
